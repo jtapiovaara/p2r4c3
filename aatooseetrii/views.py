@@ -70,11 +70,26 @@ def Startaatooseetrii(response):
     #         message = err_msg
     # form = Seuraaja()
 
+    curl = 'https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData'
+
+    n = requests.get(curl).json()
+    # print(n)
+
+    # vikaalue_act = n['confirmed'][-1]['healthCareDistrict']
+    tapausnro_act = n['confirmed'][-1]['id']
+    menehtyneet = n['deaths']
+    # vikaalue_rec = n['recovered'][-1]['healthCareDistrict']
+    tapausnro_rec = n['recovered'][-1]['id']
+
+
     context = {
         'ennuste': ennuste,
         'randomcat': randomcat,
         'natparks': natparks,
         'quote': quote,
+        'tapausnro_act': tapausnro_act,
+        'menehtyneet': menehtyneet,
+        'tapausnro_rec': tapausnro_rec,
         # 'message': message,
         # 'form': form,
     }

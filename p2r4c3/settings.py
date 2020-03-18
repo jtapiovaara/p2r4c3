@@ -25,6 +25,7 @@ SECRET_KEY = 'eruvbe&39i30ou1q9n-v6^4ddi$c=#$7sn6f1*h(-v^rd*fuzm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = ['aatooseetrii.eu.pythonanywhere.com']
 ALLOWED_HOSTS = ['*']
 
 
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
+    # 'crispy_forms',
     'rest_framework',
     'corsheaders',
     'aatooseetrii.apps.AatooseetriiConfig',
@@ -125,6 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/jta/p2r4c3/staticfiles'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),

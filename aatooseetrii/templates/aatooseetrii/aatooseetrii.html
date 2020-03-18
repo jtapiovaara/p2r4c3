@@ -1,17 +1,24 @@
  <!DOCTYPE html>
 <html lang="en">
 {% load static %}
-{% load crispy_forms_field %}
+{#{% load crispy_forms_field %}#}
 <head>
-  <title>Bootstrap 4 Example</title>
+  <title>Super nice site</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
+
 <div class="container-fluid">
     <div style="background-image: linear-gradient(to right, #f7f4d1, #c8c6aa)">
-        <br>
+        <small>
+            <div class="row" style="margin-left: 120px;">
+                    <p style="color: red">{{ context.tapausnro_act }} -</p>
+                    <p style="color: black">- {{ context.menehtyneet }} -</p>
+                    <p style="color: green">- {{ context.tapausnro_rec }}</p>
+            </div>
+        </small>
         <div class="container">
         <div id="openweathermap-widget-19" ></div>
             <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
@@ -66,13 +73,16 @@
         <br>
 {#    </div>#}
 {#    <div style="background-color: #c8c6aa">#}
-        <br>
 
     <form action="http://www.google.com/search" method="GET" target="_blank">
         <input type="text" class="form-control" name="q" placeholder="search" onfocus="this.value=''" style="background: none;"/>
     </form>
         <br>
-        <br>
+        <div class="row" style="margin-left: 65px;">
+            <h3 style="color: red">{{ context.tapausnro_act }} -</h3>
+            <h3 style="color: black">- {{ context.menehtyneet }} -</h3>
+            <h3 style="color: green">- {{ context.tapausnro_rec }}</h3>
+        </div>
     </div>
 </div>
 
