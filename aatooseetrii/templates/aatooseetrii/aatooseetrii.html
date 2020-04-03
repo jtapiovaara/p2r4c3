@@ -41,9 +41,22 @@
         <p style="margin-left: 15px; margin-right: 15px; margin-bottom: 0">{{ context.randomcat.kfactname }}</p>
         <br>
     </div>
-
     <div>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <style>
+                  #overlay {
+                      position: absolute; /* Sit on top of the page content */
+                      width: 35%; /* Full width (cover the whole page) */
+                      height: 5%; /* Full height (cover the whole page) */
+                      top: 93%;
+                      left: 20%;
+                      right: 0;
+                      bottom: 0;
+                      {#background-color: rgba(0,0,0,0.5); /* Black background with opacity */#}
+                      z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
+                      cursor: pointer; /* Add a pointer on hover */
+                  }
+              </style>
             <div class="carousel-inner center shadow">
                 <div class="carousel-item active">
                     <img src="{% static "images/grandcanyon.jpeg" %}" class="img-fluid">
@@ -51,6 +64,9 @@
                 {% for kuva in context.natparks %}
                     <div class="carousel-item ">
                         <img class="img-fluid" src="{% static "images/" %}{{ kuva.npicture }}" data-toggle="tooltip" title='{{ kuva.ndescription }}'>
+                        <a href="{{ kuva.nlocation }}" target="_blank">
+                        <div id="overlay"></div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>
@@ -78,11 +94,11 @@
         <input type="text" class="form-control" name="q" placeholder="search" onfocus="this.value=''" style="background: none;"/>
     </form>
         <br>
-        <div class="row" style="margin-left: 65px;">
-            <h3 style="color: red">{{ context.tapausnro_act }} -</h3>
-            <h3 style="color: black">- {{ context.menehtyneet }} -</h3>
-            <h3 style="color: green">- {{ context.tapausnro_rec }}</h3>
-        </div>
+{#        <div class="row" style="margin-left: 65px;">#}
+{#            <h3 style="color: red">{{ context.tapausnro_act }} -</h3>#}
+{#            <h3 style="color: black">- {{ context.menehtyneet }} -</h3>#}
+{#            <h3 style="color: green">- {{ context.tapausnro_rec }}</h3>#}
+{#        </div>#}
     </div>
 </div>
 

@@ -70,16 +70,21 @@ def Startaatooseetrii(response):
     #         message = err_msg
     # form = Seuraaja()
 
-    curl = 'https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData'
+    curl = 'https://corona.lmao.ninja/countries/Finland'
+    # curl = 'https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData'
 
     n = requests.get(curl).json()
     # print(n)
 
     # vikaalue_act = n['confirmed'][-1]['healthCareDistrict']
-    tapausnro_act = n['confirmed'][-1]['id']
-    menehtyneet = n['deaths']
+    # tapausnro_act = n['confirmed'][-1]['id']
+    # menehtyneet = n['deaths'][-1]['id']
     # vikaalue_rec = n['recovered'][-1]['healthCareDistrict']
-    tapausnro_rec = n['recovered'][-1]['id']
+    # tapausnro_rec = n['recovered'][-1]['id']
+
+    tapausnro_act = n['cases']
+    menehtyneet = n['deaths']
+    tapausnro_rec = n['recovered']
 
 
     context = {
