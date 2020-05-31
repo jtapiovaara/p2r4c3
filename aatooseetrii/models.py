@@ -35,3 +35,14 @@ class Seuraaja(models.Model):
 
     def __str__(self):
         return self.smaili
+
+
+class Golf(models.Model):
+    tunniste = models.CharField(max_length=16, blank=True)
+    pelaaja = models.CharField(max_length=32, blank=True)
+    kentta = models.CharField(max_length=64, blank=True)
+    kommentit = models.TextField(blank=True)
+    aika = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.kentta

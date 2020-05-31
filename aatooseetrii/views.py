@@ -5,7 +5,7 @@ from rest_framework import generics
 from .serializers import NatParkSerializer
 from django.views import generic
 from django.shortcuts import render
-from .models import CatTable, NatPark, Seuraaja
+from .models import CatTable, NatPark, Seuraaja, Golf
 
 
 class ListNatPark(generics.ListCreateAPIView):
@@ -70,7 +70,7 @@ def Startaatooseetrii(response):
     #         message = err_msg
     # form = Seuraaja()
 
-    curl = 'https://corona.lmao.ninja/countries/Finland'
+    curl = 'https://corona.lmao.ninja/v2/countries/Finland'
     # curl = 'https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData'
 
     n = requests.get(curl).json()
@@ -86,8 +86,11 @@ def Startaatooseetrii(response):
     menehtyneet = n['deaths']
     tapausnro_rec = n['recovered']
 
+    gamebook = Golf.objects.latest('tunniste')
+    print(gamebook)
 
     context = {
+        'gamebook': gamebook,
         'ennuste': ennuste,
         'randomcat': randomcat,
         'natparks': natparks,
